@@ -17,23 +17,30 @@ using namespace std;
 
 class LibraryBook : public Book {
 public:
+    //status of book
      enum Status {
         ON_LOAN,AVAILABLE_FOR_LENDING,REFERENCE_ONLY
     };
-    LibraryBook();
+    //constructors
+    LibraryBook();//default constructors
     LibraryBook(string title, string author, int pages,string code, string status);
     LibraryBook(const LibraryBook& orig);
     virtual ~LibraryBook();
+    //get methods
     Status getStatus()const; 
     string getCode()const;
-    void   setStatus(string status);
-    string getStatusAsString();
+    //set methods
+    void   setStatus(string status);//converts string to status
+    string getStatusAsString();//return string of status
     void   setCode(string code);
+    //operator
     friend ostream& operator <<(ostream& output, const LibraryBook& b);
+    
+    
 
 private:
-    string code;
-    Status status;
+    string code; //classification code
+    Status status;//book status
   
    
 

@@ -18,19 +18,25 @@ using namespace std;
 
 class Book {
 public:
-    Book ();
+    Book ();//default constructor
     Book(string title, string author, int pages);
     Book(const Book& orig);
     virtual ~Book();
+    //get methods
     string getTitle()const;
     string getAuthor()const;
     int getPages()const;
+    
+    //set methods
     void setTitle(string setTitle);
     void setAuthor(string setAuthor);
     void setPages(int setPages);
+    
     int converInt(string number);
+    //operators
     friend ostream& operator <<(ostream& output, const Book& b);
     friend istream& operator >>(istream& output, const Book& b);
+    friend bool operator< (Book &cC1, Book &cC2);
 
 
 

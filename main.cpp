@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 #include "Book.h"
 #include "Borrower.h"
@@ -97,6 +98,7 @@ int main(int argc, char** argv) {
 
 
             LibraryBook lb = LibraryBook(name, author, pages, code, status);
+            
 
             lBooks.push_back(lb);
 
@@ -112,7 +114,8 @@ int main(int argc, char** argv) {
 
 
     Library lbrary = Library(lBooks, users);
-
+     ofstream errorlog;
+     errorlog.open("errorlog.txt");
     ifstream myfile3("transactions.txt");
     if (myfile3.is_open()) {
         while (getline(myfile3, line)) {
@@ -139,9 +142,17 @@ int main(int argc, char** argv) {
             try {
                 lbrary.processRequest(request, name, author, bookname);
             } catch (string exception) {
-                cout<<exception<<endl;
+                
+                
+               
+                errorlog <<exception<<"\r\n";
+                cerr<<exception<<endl;
+             
+                
 
             }
+               
+            
 
             // cout<<request<<" "<<name<<" "<<author<<" "<<bookname<<endl;
 
@@ -149,7 +160,26 @@ int main(int argc, char** argv) {
 
 
         }
+        errorlog.close();
     }
+    
+    //largest number of loans
+    lbrary.mostLoans();
+    
+    
+    //person that has read the least
+    lbrary.leastRead();
+
+// sort the book list in order
+  sort(lBooks.begin(), lBooks.end());
+  cout<<"=====SORTED BOOK LIST======="<<endl;
+  for(int i =0; i<lBooks.size(); i++)
+  {
+      cout<<lBooks[i]<<endl;
+  }
+ 
+    
+   
 
 
 

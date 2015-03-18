@@ -1,0 +1,11 @@
+Unable to request BOOK: The Evolution and Ecology of the Dinosaurs to BORROWER: Bertie Wooster due to STATUS: REFERENCE_ONLY
+Unable to request BOOK: The Global Carbon Cycle to BORROWER: Sir Watkyn Bassett due to STATUS: REFERENCE_ONLY
+Unable to request BOOK: Tales of Wrykyn and Elsewhere to BORROWER: Bertie Wooster due to STATUS: ON_LOAN
+Unable to request BOOK: The Hound of the Baskervilles to BORROWER: Roderick Spode, seventh Earl of Sidcup user has 3 books
+Unable to request BOOK: A History of Britain - Volume 3 to BORROWER: Clarence Threepwood, ninth Earl of Emsworth user has 3 books
+Unable to request BOOK: What if? to BORROWER: Roderick Spode, seventh Earl of Sidcup user has 3 books
+Unable to request BOOK: The Art of Genes to BORROWER: Roderick Spode, seventh Earl of Sidcup due to STATUS: ON_LOAN
+Unable to request BOOK: The Lord of the Rings: The Two Towers to BORROWER: Roderick Spode, seventh Earl of Sidcup due to STATUS: ON_LOAN
+Unable to request BOOK: The Hobbitt to BORROWER: Dahlia Travers user has 3 books
+Unable to request BOOK: Odd John to BORROWER: Dahlia Travers user has 3 books
+Unable to request BOOK: The Retreat from Reason to BORROWER: Sir Watkyn Bassett user has 3 books
