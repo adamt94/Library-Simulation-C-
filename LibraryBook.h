@@ -33,6 +33,7 @@ public:
     void   setStatus(string status);//converts string to status
     string getStatusAsString();//return string of status
     void   setCode(string code);
+    
     //operator
     friend ostream& operator <<(ostream& output, const LibraryBook& b);
     

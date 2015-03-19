@@ -197,3 +197,13 @@ void Library::leastRead() {
     //sort(borrowers.begin(),borrowers.end(),sortByAuthor);
 
 }
+
+void Library::sortBooks(){
+    sort(librarybooks.begin(), librarybooks.end());
+      for(int i =0; i<librarybooks.size(); i++)
+  {
+      cout<<librarybooks[i]<<endl;
+  }
+ 
+    
+}

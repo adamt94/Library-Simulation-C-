@@ -8,6 +8,7 @@
 #ifndef LIBRARY_H
 #define	LIBRARY_H
 #include "Book.h"
+#include <algorithm>
 #include "Borrower.h"
 #include "LibraryBook.h"
 class Library {
@@ -33,6 +34,7 @@ public:
     
     int mostLoans();//check which user had the most loans
     void leastRead();//check which user read the least pages
+    void sortBooks();//sort books in order (author and name) and prints them
     
    
     

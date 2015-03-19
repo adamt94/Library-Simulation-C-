@@ -27,11 +27,8 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-
-    Book b = Book("n", "ab", 22);
-
-    cin>>b;
-
+    //create a library
+    Library library = Library();
 
 
 
@@ -56,14 +53,11 @@ int main(int argc, char** argv) {
             name.erase(name.end() - 1);
             getline(linestream, address);
             address.erase(address.begin());
-            // getline(linestream, line2, ',');
-            //  line2.erase(line2.begin());
-            // getline(linestream, region, ',');
-            //  region.erase(region.begin());
-            //  getline(linestream, country);
+
             Borrower bor = Borrower(ID, name, address);
 
-            users.push_back(bor);
+
+            library.addBorrowers(bor);
 
 
 
@@ -98,24 +92,24 @@ int main(int argc, char** argv) {
 
 
             LibraryBook lb = LibraryBook(name, author, pages, code, status);
-            
 
-            lBooks.push_back(lb);
+            library.addLibrarybooks(lb);
+
 
 
 
         }
 
         myfile2.close();
-        for (int i = 0; i < users.size(); i++) {
-            //  cout<<lBooks[i]<<endl;;
-        }
+
     } else cout << "Unable to open file";
 
 
-    Library lbrary = Library(lBooks, users);
-     ofstream errorlog;
-     errorlog.open("errorlog.txt");
+
+
+
+    ofstream errorlog;
+    errorlog.open("errorlog.txt");
     ifstream myfile3("transactions.txt");
     if (myfile3.is_open()) {
         while (getline(myfile3, line)) {
@@ -126,7 +120,7 @@ int main(int argc, char** argv) {
             string bookname;
 
             getline(linestream, request, ':');
-           
+
             getline(linestream, name, ':');
             name.erase(name.begin());
             name.erase(name.end() - 1);
@@ -138,21 +132,21 @@ int main(int argc, char** argv) {
             bookname.erase(bookname.begin());
             bookname.erase(bookname.end() - 1);
             bookname.erase(bookname.end() - 1);
-          
+
             try {
-                lbrary.processRequest(request, name, author, bookname);
+                library.processRequest(request, name, author, bookname);
             } catch (string exception) {
-                
-                
-               
-                errorlog <<exception<<"\r\n";
-                cerr<<exception<<endl;
-             
-                
+
+
+
+                errorlog << exception << "\r\n";
+                cerr << exception << endl;
+
+
 
             }
-               
-            
+
+
 
             // cout<<request<<" "<<name<<" "<<author<<" "<<bookname<<endl;
 
@@ -162,24 +156,22 @@ int main(int argc, char** argv) {
         }
         errorlog.close();
     }
-    
-    //largest number of loans
-    lbrary.mostLoans();
-    
-    
-    //person that has read the least
-    lbrary.leastRead();
 
-// sort the book list in order
-  sort(lBooks.begin(), lBooks.end());
-  cout<<"=====SORTED BOOK LIST======="<<endl;
-  for(int i =0; i<lBooks.size(); i++)
-  {
-      cout<<lBooks[i]<<endl;
-  }
- 
-    
-   
+    //largest number of loans
+    library.mostLoans();
+
+
+    //person that has read the least
+    library.leastRead();
+
+
+    cout << "=====SORTED BOOK LIST=======" << endl;
+    // sort the book list in order
+    library.sortBooks();
+
+
+
+
 
 
 
